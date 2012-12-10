@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Maruku's Blog]]></title>
+  <link href="http://marukulau.github.com/atom.xml" rel="self"/>
+  <link href="http://marukulau.github.com/"/>
+  <updated>2012-12-10T14:02:52+08:00</updated>
+  <id>http://marukulau.github.com/</id>
+  <author>
+    <name><![CDATA[Maruku Lau]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何安装git]]></title>
+    <link href="http://marukulau.github.com/blog/2012/12/07/xin-bo-ke-ce-shi/"/>
+    <updated>2012-12-07T12:35:00+08:00</updated>
+    <id>http://marukulau.github.com/blog/2012/12/07/xin-bo-ke-ce-shi</id>
+    <content type="html"><![CDATA[<h2>下载安装包</h2>
+
+<blockquote><p>git clone gitroot@gitserver:git/iOS
+git</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

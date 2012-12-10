@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "‘新博客测试’"
+title: "如何安装git"
 date: 2012-12-07 12:35
 comments: true
-categories: 
+categories: 安装指南
 ---
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
+##下载安装包
+>git clone gitroot@gitserver:git/iOS
+>git 
+>

@@ -3,7 +3,7 @@ layout: post
 title: ".net的DateTime时间格式转成NSDate"
 date: 2013-04-10 10:20
 comments: true
-categories: [iOS], [Object C]
+categories: [Object C, iOS]
 ---
 
 最近项目中用到的接口是.net写的，传过来的日期格式是 2013-04-10T10:36:48.787359+08:00 , 这么一大串想解析成NSDate格式还真不是一件容易的事，幸好已经有人把转换类写出来了。

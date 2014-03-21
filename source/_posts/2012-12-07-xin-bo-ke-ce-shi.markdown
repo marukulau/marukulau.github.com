@@ -6,6 +6,7 @@ comments: true
 categories: 安装指南
 ---
 ##下载安装包
->git clone gitroot@gitserver:git/iOS
->git 
->
+>git clone gitroot@gitserver:git/iOS  
+
+1. git  
+1. sdf

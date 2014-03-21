@@ -4,7 +4,7 @@
   <title><![CDATA[Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-22T01:16:43+08:00</updated>
+  <updated>2014-03-22T01:18:52+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -20,9 +20,11 @@
     <id>http://marukulau.github.io/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing</id>
     <content type="html"><![CDATA[<h2>设置背景图片</h2>
 
-<pre><code>UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-[self.textField setBackground:textFieldBgImage];
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
+</span><span class='line'>[self.textField setBackground:textFieldBgImage];</span></code></pre></td></tr></table></div></figure>
+
 
 <!-- more -->
 
@@ -31,20 +33,33 @@
 
 <p>设置好图片后输入文字会发现左边的文字和背景图片的边框重叠了，需要设置一下文本框的边距，可是UITextField没有相应的属性可以设置，所以只有重写UITextField的相关方法。</p>
 
-<pre><code>@implementation UITextField(UITextFieldCategory)
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@implementation UITextField(UITextFieldCategory)
+</span><span class='line'>
+</span><span class='line'>- (CGRect)textRectForBounds:(CGRect)bounds {
+</span><span class='line'>    CGRect inset = CGRectInset(bounds, 5, 5);
+</span><span class='line'>    return inset;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>- (CGRect)editingRectForBounds:(CGRect)bounds {
+</span><span class='line'>    CGRect inset = CGRectInset(bounds, 5, 5);
+</span><span class='line'>    return inset;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
 
-- (CGRect)textRectForBounds:(CGRect)bounds {
-    CGRect inset = CGRectInset(bounds, 5, 5);
-    return inset;
-}
-
-- (CGRect)editingRectForBounds:(CGRect)bounds {
-    CGRect inset = CGRectInset(bounds, 5, 5);
-    return inset;
-}
-
-@end
-</code></pre>
 
 <p>上面偷了个懒，直接用category的方式重写了这个两个方法。</p>
 ]]></content>

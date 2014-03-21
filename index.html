@@ -303,20 +303,33 @@
 
 <p>Sencha Touch有自己的类定义方式，我们先来看个例子：</p>
 
-<pre><code>Ext.define('Animal', {
-    config: {
-        name: null
-    },
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Ext.define('Animal', {
+</span><span class='line'>    config: {
+</span><span class='line'>        name: null
+</span><span class='line'>    },
+</span><span class='line'> 
+</span><span class='line'>    constructor: function(config) {
+</span><span class='line'>        this.initConfig(config);
+</span><span class='line'>    },
+</span><span class='line'> 
+</span><span class='line'>    speak: function() {
+</span><span class='line'>        alert('grunt');
+</span><span class='line'>    }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
-    constructor: function(config) {
-        this.initConfig(config);
-    },
-
-    speak: function() {
-        alert('grunt');
-    }
-});
-</code></pre>
 
 <p>上面我们简单地定义了一个Animal类，只有一个name属性和一个方法speak();</p>
 

@@ -161,7 +161,7 @@ bob.speak(); //alerts 'Bob'
 
 <h2>getter和setter方法</h2>
 
-<p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&#8221;)。</p>
+<p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&lsquo;&rsquo;)。</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -187,7 +187,7 @@ bob.speak(); //alerts 'Bob'
 
 <h2>依赖和动态加载</h2>
 
-<p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &#8216;Ext.MessageBox&#8217;。</p>
+<p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &lsquo;Ext.MessageBox&#8217;。</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -218,7 +218,7 @@ bob.speak(); //alerts 'Bob'
 ...
 </code></pre>
 
-<p>类名规则为：项目名称.目录1.目录2&#8230;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
+<p>类名规则为：项目名称.目录1.目录2&hellip;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
 </div>
 
 
@@ -256,6 +256,8 @@ bob.speak(); //alerts 'Bob'
         </p>
         
           <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://marukulau.github.io/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/" data-via="" data-counturl="http://marukulau.github.io/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/" >Tweet</a>
   
   
   
@@ -305,7 +307,6 @@ bob.speak(); //alerts 'Bob'
 
 
 
-
     
   </aside>
   
@@ -334,6 +335,16 @@ bob.speak(); //alerts 'Bob'
 
 
 
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
 
 
 

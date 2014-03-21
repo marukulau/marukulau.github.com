@@ -4,7 +4,7 @@
   <title><![CDATA[Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-22T00:29:52+08:00</updated>
+  <updated>2014-03-22T00:57:07+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -1365,7 +1365,7 @@ bob.speak(); //alerts 'Bob'
 
 <h2>getter和setter方法</h2>
 
-<p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&#8221;)。</p>
+<p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&lsquo;&rsquo;)。</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -1391,7 +1391,7 @@ bob.speak(); //alerts 'Bob'
 
 <h2>依赖和动态加载</h2>
 
-<p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &#8216;Ext.MessageBox&#8217;。</p>
+<p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &lsquo;Ext.MessageBox&#8217;。</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -1422,7 +1422,7 @@ bob.speak(); //alerts 'Bob'
 ...
 </code></pre>
 
-<p>类名规则为：项目名称.目录1.目录2&#8230;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
+<p>类名规则为：项目名称.目录1.目录2&hellip;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
 ]]></content>
   </entry>
   

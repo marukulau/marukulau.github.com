@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sencha Touch | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/sencha-touch/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-22T01:24:05+08:00</updated>
+  <updated>2014-03-22T01:28:17+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -280,7 +280,7 @@ formpanel               Ext.form.Panel
     <content type="html"><![CDATA[<h2>类的定义</h2>
 
 <p>Sencha Touch有自己的类定义方式，我们先来看个例子：
-```</p>
+``` javascript code</p>
 
 <pre><code>Ext.define('Animal', {
     config: {

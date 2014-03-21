@@ -10,7 +10,7 @@ categories: [Object C, iOS]
 
 	UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
 	[self.textField setBackground:textFieldBgImage];
-
+<!-- more -->
 ##修改文字边距
 
 设置好图片后输入文字会发现左边的文字和背景图片的边框重叠了，需要设置一下文本框的边距，可是UITextField没有相应的属性可以设置，所以只有重写UITextField的相关方法。

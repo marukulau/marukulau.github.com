@@ -24,7 +24,7 @@ Sencha Touch有自己的类定义方式，我们先来看个例子：
     });
 
 上面我们简单地定义了一个Animal类，只有一个name属性和一个方法speak();  
-
+<!-- more -->
 ##类的继承
 	Ext.define('Human', {
 	    extend: 'Animal',

@@ -14,7 +14,7 @@ categories: [Sencha Touch]
 * Mac OSX
 * Xcode
 * Sencha Touch SDK
-
+<!-- more -->
 ###Sencha Touch SDK下载
 开发环境搭建的第一步当然就是下载SDK，Sencha Touch 2.1的SDK可以到官网下载：[下载页面](http://www.sencha.com/products/touch/download/), 这里需要填个邮箱地址，随便填一个地址就可以了，会自动跳转到下载页面。  
 

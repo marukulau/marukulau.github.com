@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sencha Touch | Maruku's Blog]]></title>
   <link href="http://marukulau.github.com/blog/categories/sencha-touch/atom.xml" rel="self"/>
   <link href="http://marukulau.github.com/"/>
-  <updated>2014-03-21T23:53:03+08:00</updated>
+  <updated>2014-03-21T23:56:47+08:00</updated>
   <id>http://marukulau.github.com/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -395,6 +395,9 @@ bob.speak(); //alerts 'Bob'
 <li>Xcode</li>
 <li>Sencha Touch SDK</li>
 </ul>
+
+
+<!-- more -->
 
 
 <h3>Sencha Touch SDK下载</h3>

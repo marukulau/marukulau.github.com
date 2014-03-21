@@ -4,7 +4,7 @@
   <title><![CDATA[Maruku's Blog]]></title>
   <link href="http://marukulau.github.com/atom.xml" rel="self"/>
   <link href="http://marukulau.github.com/"/>
-  <updated>2014-03-21T23:53:03+08:00</updated>
+  <updated>2014-03-21T23:56:47+08:00</updated>
   <id>http://marukulau.github.com/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -23,6 +23,9 @@
 <pre><code>UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
 [self.textField setBackground:textFieldBgImage];
 </code></pre>
+
+<!-- more -->
+
 
 <h2>修改文字边距</h2>
 
@@ -1427,6 +1430,9 @@ bob.speak(); //alerts 'Bob'
 <li>Xcode</li>
 <li>Sencha Touch SDK</li>
 </ul>
+
+
+<!-- more -->
 
 
 <h3>Sencha Touch SDK下载</h3>

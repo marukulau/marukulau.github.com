@@ -100,28 +100,12 @@
 [self.textField setBackground:textFieldBgImage];
 </code></pre>
 
-<h2>修改文字边距</h2>
-
-<p>设置好图片后输入文字会发现左边的文字和背景图片的边框重叠了，需要设置一下文本框的边距，可是UITextField没有相应的属性可以设置，所以只有重写UITextField的相关方法。</p>
-
-<pre><code>@implementation UITextField(UITextFieldCategory)
-
-- (CGRect)textRectForBounds:(CGRect)bounds {
-    CGRect inset = CGRectInset(bounds, 5, 5);
-    return inset;
-}
-
-- (CGRect)editingRectForBounds:(CGRect)bounds {
-    CGRect inset = CGRectInset(bounds, 5, 5);
-    return inset;
-}
-
-@end
-</code></pre>
-
-<p>上面偷了个懒，直接用category的方式重写了这个两个方法。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -1640,57 +1624,12 @@ bob.speak(); //alerts 'Bob'
 </ul>
 
 
-<h3>Sencha Touch SDK下载</h3>
-
-<p>开发环境搭建的第一步当然就是下载SDK，Sencha Touch 2.1的SDK可以到官网下载：<a href="http://www.sencha.com/products/touch/download/">下载页面</a>, 这里需要填个邮箱地址，随便填一个地址就可以了，会自动跳转到下载页面。</p>
-
-<h3>创建Sencha iOS项目</h3>
-
-<p>SDk下载好了之后就可以通过PhoneGap或者直接自己建个项目在webView里面加载Sencha页面就可以了。事实上还有第三种方法，就是Sencha Cmd，官方对Sencha Cmd的介绍是：</p>
-
-<blockquote><p>Sencha Cmd is a cross-platform command line tool that provides many automated tasks around the full life-cycle of your applications, from generating a new project to deploying an application to production.</p></blockquote>
-
-<p>也就是说，我们可以直接使用Sencha Cmd这个工具进行全生命周期的应用开发。另外，官网还有个Sencha SDK Tools，不过官网也建议：</p>
-
-<blockquote><p>Please note: Sencha SDK Tools are designed to be used with Sencha Touch 2 and Ext JS 4.0 and are deprecated for the most current framework releases. For the current version of Sencha’s build tools, please refer to Sencha Cmd, our unified tool for Sencha’s JavaScript frameworks.</p></blockquote>
-
-<p>所以还是老老实实下载Sencha Cmd吧，Sencha Cmd <a href="http://www.sencha.com/products/sencha-cmd/download">下载地址</a>。</p>
-
-<p>下载后安装好就可以打开终端敲命令进行创建Sencha项目了，我们把项目创建在桌面，项目名称为HelloSencha，命令如下：</p>
-
-<pre><code>$ sencha generate app HelloSenCha ~/Desktop/HelloSenCha
-
-Sencha Cmd v3.0.0.250
-[INF]       init-properties:
-[INF]       init-sencha-command:
-[INF]       init:
-[INF]       -before-generate-workspace:
-[INF]       generate-workspace-impl:
-[WRN]       Ignoring @require ../version/Version.js in js/String.js
-[WRN]       Ignoring @require ../Ext-more.js in js/Format.js
-[INF]       -before-copy-framework-to-workspace:
-[INF]       copy-framework-to-workspace-impl:
-</code></pre>
-
-<p>等命令执行完毕后，到桌面就可以看到创建好的项目了。</p>
-
-<h3>编译项目</h3>
-
-<p>无需通过Xcode，我们就可以直接执行命令进行编译，编译结果将放在../build 文件夹下。</p>
-
-<pre><code>$ sencha package build ~/Desktop/HelloSenCha/packager.json
-</code></pre>
-
-<h3>运行项目</h3>
-
-<p>同样，我们无需打开Xcode，直接通过命令就可以把我们刚才创建的项目在iOS模拟器里面运行起来：</p>
-
-<pre><code>$ sencha package run ~/Desktop/HelloSenCha/packager.json
-</code></pre>
-
-<p>现在，我们已经知道了怎么创建、编译和部署项目了，接下来就可以进行Sencha Touch SDK的学习了。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/">Read on &rarr;</a>
+    </footer>
   
 
 

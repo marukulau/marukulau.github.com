@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>使用Sencha Touch 2.1进行iOS开发 —— 开发环境搭建 - Maruku's Blog</title>
+  <meta name="author" content="Maruku Lau">
+
+  
+  <meta name="description" content="最近由于要用到Sencha Touch 2.1进行项目的开发，于是开始了对Sencha Touch的学习，学习Sencha Touch第一步当然是搭建开发环境。 开发环境搭建 Sencha iOS开发基本环境 Mac OSX
+Xcode
+Sencha Touch SDK Sencha Touch &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://marukulau.github.com/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Maruku's Blog</a></h1>
+  
+    <h2>要走的路还很长...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:marukulau.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">使用Sencha Touch 2.1进行iOS开发 —— 开发环境搭建</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-14T15:36:00+08:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>最近由于要用到Sencha Touch 2.1进行项目的开发，于是开始了对Sencha Touch的学习，学习Sencha Touch第一步当然是搭建开发环境。</p>
+
+<h2>开发环境搭建</h2>
+
+<h3>Sencha iOS开发基本环境</h3>
+
+<ul>
+<li>Mac OSX</li>
+<li>Xcode</li>
+<li>Sencha Touch SDK</li>
+</ul>
+
+
+<h3>Sencha Touch SDK下载</h3>
+
+<p>开发环境搭建的第一步当然就是下载SDK，Sencha Touch 2.1的SDK可以到官网下载：<a href="http://www.sencha.com/products/touch/download/">下载页面</a>, 这里需要填个邮箱地址，随便填一个地址就可以了，会自动跳转到下载页面。</p>
+
+<h3>创建Sencha iOS项目</h3>
+
+<p>SDk下载好了之后就可以通过PhoneGap或者直接自己建个项目在webView里面加载Sencha页面就可以了。事实上还有第三种方法，就是Sencha Cmd，官方对Sencha Cmd的介绍是：</p>
+
+<blockquote><p>Sencha Cmd is a cross-platform command line tool that provides many automated tasks around the full life-cycle of your applications, from generating a new project to deploying an application to production.</p></blockquote>
+
+<p>也就是说，我们可以直接使用Sencha Cmd这个工具进行全生命周期的应用开发。另外，官网还有个Sencha SDK Tools，不过官网也建议：</p>
+
+<blockquote><p>Please note: Sencha SDK Tools are designed to be used with Sencha Touch 2 and Ext JS 4.0 and are deprecated for the most current framework releases. For the current version of Sencha’s build tools, please refer to Sencha Cmd, our unified tool for Sencha’s JavaScript frameworks.</p></blockquote>
+
+<p>所以还是老老实实下载Sencha Cmd吧，Sencha Cmd <a href="http://www.sencha.com/products/sencha-cmd/download">下载地址</a>。</p>
+
+<p>下载后安装好就可以打开终端敲命令进行创建Sencha项目了，我们把项目创建在桌面，项目名称为HelloSencha，命令如下：</p>
+
+<pre><code>$ sencha generate app HelloSenCha ~/Desktop/HelloSenCha
+
+Sencha Cmd v3.0.0.250
+[INF]       init-properties:
+[INF]       init-sencha-command:
+[INF]       init:
+[INF]       -before-generate-workspace:
+[INF]       generate-workspace-impl:
+[WRN]       Ignoring @require ../version/Version.js in js/String.js
+[WRN]       Ignoring @require ../Ext-more.js in js/Format.js
+[INF]       -before-copy-framework-to-workspace:
+[INF]       copy-framework-to-workspace-impl:
+</code></pre>
+
+<p>等命令执行完毕后，到桌面就可以看到创建好的项目了。</p>
+
+<h3>编译项目</h3>
+
+<p>无需通过Xcode，我们就可以直接执行命令进行编译，编译结果将放在../build 文件夹下。</p>
+
+<pre><code>$ sencha package build ~/Desktop/HelloSenCha/packager.json
+</code></pre>
+
+<h3>运行项目</h3>
+
+<p>同样，我们无需打开Xcode，直接通过命令就可以把我们刚才创建的项目在iOS模拟器里面运行起来：</p>
+
+<pre><code>$ sencha package run ~/Desktop/HelloSenCha/packager.json
+</code></pre>
+
+<p>现在，我们已经知道了怎么创建、编译和部署项目了，接下来就可以进行Sencha Touch SDK的学习了。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Maruku Lau</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-14T15:36:00+08:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/sencha-touch/'>Sencha Touch</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+  <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_tsina">新浪微博</a>
+
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+<!-- UY END -->
+ 
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/" title="Next Post: 使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用">使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/">自定义UITextField背景</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate/">.net的DateTime时间格式转成NSDate</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/sdf/">Shecha Touch实例学习</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/">使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/">使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Maruku Lau -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析 - Maruku's Blog</title>
+  <meta name="author" content="Maruku Lau">
+
+  
+  <meta name="description" content="从第一篇文章我们知道了如何通过sencha命令创建Sencha Touch项目，而创建的项目里面已经包含了不少文件，如要开始写代码，我们有必要先了解所创建项目的文件结构及代码。 文件结构 在终端输入 $ sencha generate app HelloWorld ~/Desktop/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://marukulau.github.com/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Maruku's Blog</a></h1>
+  
+    <h2>要走的路还很长...</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:marukulau.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-19T09:20:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>从第一篇文章我们知道了如何通过sencha命令创建Sencha Touch项目，而创建的项目里面已经包含了不少文件，如要开始写代码，我们有必要先了解所创建项目的文件结构及代码。</p>
+
+<h2>文件结构</h2>
+
+<p>在终端输入</p>
+
+<pre><code>$ sencha generate app HelloWorld ~/Desktop/HelloWorld
+</code></pre>
+
+<p>我们创建了一个名为HelloWorld的项目，进入该文件夹可以看到文件如下：</p>
+
+<pre><code>app/
+    controller/
+    model/
+    profile/
+    store/
+    view/
+        Main.js
+app.js
+app.json
+build.xml
+index.html
+packager.json
+resources/
+touch/
+</code></pre>
+
+<ul>
+<li>packager.json 一些sencha package命令要用到的文件，里面是一些编译打包配置信息。</li>
+<li>app.js 包含了应用的初始化逻辑代码。</li>
+<li>app.json 应用部署的配置。</li>
+<li>app/ MVC结构的应用源代码文件。</li>
+<li>resources/ 资源文件夹。</li>
+<li>touch/ Sencha Touch SDK文件。</li>
+</ul>
+
+
+<h2>代码分析</h2>
+
+<h3>应用入口</h3>
+
+<p>app.js是应用的初始化文件，也就是意味着应用的入口在这里，打开该文件，我可以看到这一段代码：</p>
+
+<pre><code>launch: function() {
+    // Destroy the #appLoadingIndicator element
+    Ext.fly('appLoadingIndicator').destroy();
+
+    // Initialize the main view
+    Ext.Viewport.add(Ext.create('HelloWorld.view.Main'));
+},
+</code></pre>
+
+<p><code>Ext.create('HelloWorld.view.Main')</code>创建了一个HelloWorld.view.Main实例并加入到Viewport中，也就是说我们进入应用看到的主界面的代码源文件是app/view/Main.js文件。</p>
+
+<h2>xtype</h2>
+
+<p>打开Main.js文件，上一篇文章已经讲过类的定义了，所以HelloWorld.view.Main类的定义应该比较好理解。需要注意的是里面的<code>xtype: 'main'</code>属性，这个是定义当前类的xtype，方便被其他类用进行引用，而config下items的xtype则是对其他已定义xtype的类的引用。</p>
+
+<p>下面是SDK所有的xtype及其对应的类：</p>
+
+<pre><code>xtype                   Class
+-----------------       ---------------------
+actionsheet             Ext.ActionSheet
+audio                   Ext.Audio
+button                  Ext.Button
+component               Ext.Component
+container               Ext.Container
+image                   Ext.Img
+label                   Ext.Label
+loadmask                Ext.LoadMask
+map                     Ext.Map
+mask                    Ext.Mask
+media                   Ext.Media
+panel                   Ext.Panel
+segmentedbutton         Ext.SegmentedButton
+sheet                   Ext.Sheet
+spacer                  Ext.Spacer
+title                   Ext.Title
+titlebar                Ext.TitleBar
+toolbar                 Ext.Toolbar
+video                   Ext.Video
+carousel                Ext.carousel.Carousel
+carouselindicator       Ext.carousel.Indicator
+navigationview          Ext.navigation.View
+datepicker              Ext.picker.Date
+picker                  Ext.picker.Picker
+pickerslot              Ext.picker.Slot
+slider                  Ext.slider.Slider
+thumb                   Ext.slider.Thumb
+tabbar                  Ext.tab.Bar
+tabpanel                Ext.tab.Panel
+tab                     Ext.tab.Tab
+viewport                Ext.viewport.Default
+
+DataView Components
+---------------------------------------------
+dataview                Ext.dataview.DataView
+list                    Ext.dataview.List
+listitemheader          Ext.dataview.ListItemHeader
+nestedlist              Ext.dataview.NestedList
+dataitem                Ext.dataview.component.DataItem
+
+Form Components
+---------------------------------------------
+checkboxfield           Ext.field.Checkbox
+datepickerfield         Ext.field.DatePicker
+emailfield              Ext.field.Email
+field                   Ext.field.Field
+hiddenfield             Ext.field.Hidden
+input                   Ext.field.Input
+numberfield             Ext.field.Number
+passwordfield           Ext.field.Password
+radiofield              Ext.field.Radio
+searchfield             Ext.field.Search
+selectfield             Ext.field.Select
+sliderfield             Ext.field.Slider
+spinnerfield            Ext.field.Spinner
+textfield               Ext.field.Text
+textareafield           Ext.field.TextArea
+textareainput           Ext.field.TextAreaInput
+togglefield             Ext.field.Toggle
+urlfield                Ext.field.Url
+fieldset                Ext.form.FieldSet
+formpanel               Ext.form.Panel
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Maruku Lau</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-19T09:20:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/sencha-touch/'>Sencha Touch</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+  <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_tsina">新浪微博</a>
+
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+<!-- UY END -->
+ 
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/" title="Previous Post: 使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用">&laquo; 使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/19/sdf/" title="Next Post: Shecha Touch实例学习">Shecha Touch实例学习 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/">自定义UITextField背景</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate/">.net的DateTime时间格式转成NSDate</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/sdf/">Shecha Touch实例学习</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/">使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/">使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Maruku Lau -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

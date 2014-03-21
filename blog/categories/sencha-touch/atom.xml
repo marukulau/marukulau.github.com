@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Sencha Touch | Maruku's Blog]]></title>
-  <link href="http://marukulau.github.com/blog/categories/sencha-touch/atom.xml" rel="self"/>
-  <link href="http://marukulau.github.com/"/>
-  <updated>2014-03-21T23:56:47+08:00</updated>
-  <id>http://marukulau.github.com/</id>
+  <link href="http://marukulau.github.io/blog/categories/sencha-touch/atom.xml" rel="self"/>
+  <link href="http://marukulau.github.io/"/>
+  <updated>2014-03-22T00:04:07+08:00</updated>
+  <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Shecha Touch实例学习]]></title>
-    <link href="http://marukulau.github.com/blog/2012/12/19/sdf/"/>
+    <link href="http://marukulau.github.io/blog/2012/12/19/sdf/"/>
     <updated>2012-12-19T15:38:00+08:00</updated>
-    <id>http://marukulau.github.com/blog/2012/12/19/sdf</id>
+    <id>http://marukulau.github.io/blog/2012/12/19/sdf</id>
     <content type="html"><![CDATA[<p>通过前几篇文章的介绍，大家应该对Sencha Touch总体有了了解，现在已经可以开始做一些简单的应用。这一次我们要做的是一个简单通讯录应用。</p>
 
 <h2>原型图</h2>
@@ -135,9 +135,9 @@
   
   <entry>
     <title type="html"><![CDATA[使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析]]></title>
-    <link href="http://marukulau.github.com/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/"/>
+    <link href="http://marukulau.github.io/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/"/>
     <updated>2012-12-19T09:20:00+08:00</updated>
-    <id>http://marukulau.github.com/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi</id>
+    <id>http://marukulau.github.io/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi</id>
     <content type="html"><![CDATA[<p>从第一篇文章我们知道了如何通过sencha命令创建Sencha Touch项目，而创建的项目里面已经包含了不少文件，如要开始写代码，我们有必要先了解所创建项目的文件结构及代码。</p>
 
 <h2>文件结构</h2>
@@ -268,9 +268,9 @@ formpanel               Ext.form.Panel
   
   <entry>
     <title type="html"><![CDATA[使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用]]></title>
-    <link href="http://marukulau.github.com/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/"/>
+    <link href="http://marukulau.github.io/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/"/>
     <updated>2012-12-18T13:57:00+08:00</updated>
-    <id>http://marukulau.github.com/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi</id>
+    <id>http://marukulau.github.io/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi</id>
     <content type="html"><![CDATA[<h2>类的定义</h2>
 
 <p>Sencha Touch有自己的类定义方式，我们先来看个例子：</p>
@@ -381,9 +381,9 @@ bob.speak(); //alerts 'Bob'
   
   <entry>
     <title type="html"><![CDATA[使用Sencha Touch 2.1进行iOS开发 —— 开发环境搭建]]></title>
-    <link href="http://marukulau.github.com/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/"/>
+    <link href="http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/"/>
     <updated>2012-12-14T15:36:00+08:00</updated>
-    <id>http://marukulau.github.com/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian</id>
+    <id>http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian</id>
     <content type="html"><![CDATA[<p>最近由于要用到Sencha Touch 2.1进行项目的开发，于是开始了对Sencha Touch的学习，学习Sencha Touch第一步当然是搭建开发环境。</p>
 
 <h2>开发环境搭建</h2>

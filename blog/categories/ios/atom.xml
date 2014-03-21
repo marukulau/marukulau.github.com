@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: iOS | Maruku's Blog]]></title>
-  <link href="http://marukulau.github.com/blog/categories/ios/atom.xml" rel="self"/>
-  <link href="http://marukulau.github.com/"/>
-  <updated>2014-03-21T23:56:47+08:00</updated>
-  <id>http://marukulau.github.com/</id>
+  <link href="http://marukulau.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://marukulau.github.io/"/>
+  <updated>2014-03-22T00:04:07+08:00</updated>
+  <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[自定义UITextField背景]]></title>
-    <link href="http://marukulau.github.com/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/"/>
+    <link href="http://marukulau.github.io/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/"/>
     <updated>2013-04-10T10:59:00+08:00</updated>
-    <id>http://marukulau.github.com/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing</id>
+    <id>http://marukulau.github.io/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing</id>
     <content type="html"><![CDATA[<h2>设置背景图片</h2>
 
 <pre><code>UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
@@ -52,9 +52,9 @@
   
   <entry>
     <title type="html"><![CDATA[.net的DateTime时间格式转成NSDate]]></title>
-    <link href="http://marukulau.github.com/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate/"/>
+    <link href="http://marukulau.github.io/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate/"/>
     <updated>2013-04-10T10:20:00+08:00</updated>
-    <id>http://marukulau.github.com/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate</id>
+    <id>http://marukulau.github.io/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate</id>
     <content type="html"><![CDATA[<p>最近项目中用到的接口是.net写的，传过来的日期格式是 2013-04-10T10:36:48.787359+08:00 , 这么一大串想解析成NSDate格式还真不是一件容易的事，幸好已经有人把转换类写出来了。</p>
 
 <h2>转换类</h2>

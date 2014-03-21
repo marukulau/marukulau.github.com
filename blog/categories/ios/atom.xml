@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-22T01:18:52+08:00</updated>
+  <updated>2014-03-22T01:24:05+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -20,7 +20,7 @@
     <id>http://marukulau.github.io/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing</id>
     <content type="html"><![CDATA[<h2>设置背景图片</h2>
 
-<p>```</p>
+<p>``` objc Code</p>
 
 <pre><code>UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
 [self.textField setBackground:textFieldBgImage];

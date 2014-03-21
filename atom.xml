@@ -4,7 +4,7 @@
   <title><![CDATA[Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-22T01:18:52+08:00</updated>
+  <updated>2014-03-22T01:24:05+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -20,10 +20,11 @@
     <id>http://marukulau.github.io/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing</id>
     <content type="html"><![CDATA[<h2>设置背景图片</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Code</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>UIImage *textFieldBgImage = [[UIImage imageNamed:@"textfield_bg.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:5];
-</span><span class='line'>[self.textField setBackground:textFieldBgImage];</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="n">UIImage</span> <span class="o">*</span><span class="n">textFieldBgImage</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;textfield_bg.png&quot;</span><span class="p">]</span> <span class="nl">stretchableImageWithLeftCapWidth:</span><span class="mi">5</span> <span class="nl">topCapHeight:</span><span class="mi">5</span><span class="p">];</span>
+</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">textField</span> <span class="nl">setBackground:</span><span class="n">textFieldBgImage</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <!-- more -->
@@ -33,7 +34,7 @@
 
 <p>设置好图片后输入文字会发现左边的文字和背景图片的边框重叠了，需要设置一下文本框的边距，可是UITextField没有相应的属性可以设置，所以只有重写UITextField的相关方法。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Code</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -46,19 +47,20 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>@implementation UITextField(UITextFieldCategory)
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">@implementation</span> <span class="nc">UITextField</span><span class="nl">(UITextFieldCategory)</span>
 </span><span class='line'>
-</span><span class='line'>- (CGRect)textRectForBounds:(CGRect)bounds {
-</span><span class='line'>    CGRect inset = CGRectInset(bounds, 5, 5);
-</span><span class='line'>    return inset;
-</span><span class='line'>}
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">CGRect</span><span class="p">)</span><span class="nf">textRectForBounds:</span><span class="p">(</span><span class="n">CGRect</span><span class="p">)</span><span class="nv">bounds</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">CGRect</span> <span class="n">inset</span> <span class="o">=</span> <span class="n">CGRectInset</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">inset</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>- (CGRect)editingRectForBounds:(CGRect)bounds {
-</span><span class='line'>    CGRect inset = CGRectInset(bounds, 5, 5);
-</span><span class='line'>    return inset;
-</span><span class='line'>}
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">CGRect</span><span class="p">)</span><span class="nf">editingRectForBounds:</span><span class="p">(</span><span class="n">CGRect</span><span class="p">)</span><span class="nv">bounds</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">CGRect</span> <span class="n">inset</span> <span class="o">=</span> <span class="n">CGRectInset</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">inset</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">@end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>上面偷了个懒，直接用category的方式重写了这个两个方法。</p>

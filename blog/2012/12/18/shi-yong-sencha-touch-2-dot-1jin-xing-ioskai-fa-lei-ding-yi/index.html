@@ -118,7 +118,7 @@
 
 <p>Sencha Touch有自己的类定义方式，我们先来看个例子：</p>
 
-<figure class='code'><figcaption><span>code</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -131,7 +131,7 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="p">{</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="p">{</span>
 </span><span class='line'>    <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
 </span><span class='line'>        <span class="nx">name</span><span class="o">:</span> <span class="kc">null</span>
 </span><span class='line'>    <span class="p">},</span>
@@ -154,88 +154,145 @@
 
 <h2>类的继承</h2>
 
-<pre><code>Ext.define('Human', {
-    extend: 'Animal',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Animal&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">speak</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    speak: function() {
-        alert(this.getName());
-    }
-});
-</code></pre>
 
-<p>我们定义了一个Human类继承自Animal，并重写speak()方法。</p>
+<p>
+我们定义了一个Human类继承自Animal，并重写speak()方法。</p>
 
 <h2>类的实例化</h2>
 
-<pre><code>var bob = Ext.create('Human', {
-    name: 'Bob'
-});
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">bob</span> <span class="o">=</span> <span class="nx">Ext</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Bob&#39;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">bob</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span> <span class="c1">//alerts &#39;Bob&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-bob.speak(); //alerts 'Bob'
-</code></pre>
 
-<p>通过Ext.create()静态方法创建类实例。</p>
+<p>
+通过Ext.create()静态方法创建类实例。</p>
 
 <h2>getter和setter方法</h2>
 
 <p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&lsquo;&rsquo;)。</p>
 
-<pre><code>Ext.define('Human', {
-    extend: 'Animal',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Animal&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">applyName</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newName</span><span class="p">,</span> <span class="nx">oldName</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;Are you sure you want to change name to &#39;</span> <span class="o">+</span> <span class="nx">newName</span> <span class="o">+</span> <span class="s1">&#39;?&#39;</span><span class="p">)</span><span class="o">?</span> <span class="nx">newName</span> <span class="o">:</span> <span class="nx">oldName</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    applyName: function(newName, oldName) {
-        return confirm('Are you sure you want to change name to ' + newName + '?')? newName : oldName;
-    }
-});
-</code></pre>
 
-<p>applyName()方法是在调用setter方法后自动回调的方法，上面例子将在调用setter方法后弹出确认窗口询问是否修改name的值，点击no的话则不进行修改。</p>
+<p>
+applyName()方法是在调用setter方法后自动回调的方法，上面例子将在调用setter方法后弹出确认窗口询问是否修改name的值，点击no的话则不进行修改。</p>
 
-<pre><code>Ext.define('Human', {
-    extend: 'Animal',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Animal&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">updateName</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newName</span><span class="p">,</span> <span class="nx">oldName</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Name changed. New name is: &#39;</span> <span class="o">+</span> <span class="nx">newName</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    updateName: function(newName, oldName) {
-        alert('Name changed. New name is: ' + newName);
-    }
-});
-</code></pre>
 
-<p>updateName()方法则是在调用setter方法后并且改属性值已经修改了的情况下自动回调的。</p>
+<p>
+updateName()方法则是在调用setter方法后并且改属性值已经修改了的情况下自动回调的。</p>
 
 <h2>依赖和动态加载</h2>
 
 <p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &lsquo;Ext.MessageBox&#8217;。</p>
 
-<pre><code>Ext.define('Human', {
-    extend: 'Animal',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Animal&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">requires</span><span class="o">:</span> <span class="s1">&#39;Ext.MessageBox&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">speak</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">Ext</span><span class="p">.</span><span class="nx">Msg</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getName</span><span class="p">(),</span> <span class="s2">&quot;Speaks...&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    requires: 'Ext.MessageBox',
 
-    speak: function() {
-        Ext.Msg.alert(this.getName(), "Speaks...");
-    }
-});
-</code></pre>
-
-<p>加入引用声明后，Sencha Touch会自动判断是否Ext.MessageBox已经加载，如果未加载的话则会自动通过AJAX加载对应的类文件。</p>
+<p>
+加入引用声明后，Sencha Touch会自动判断是否Ext.MessageBox已经加载，如果未加载的话则会自动通过AJAX加载对应的类文件。</p>
 
 <h2>命名空间</h2>
 
 <p>以上一篇文章的Main.js文件为例</p>
 
-<pre><code>Ext.define('HelloSenCha.view.Main', {
-    extend: 'Ext.navigation.View',
-    xtype: 'mainview',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;HelloSenCha.view.Main&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.navigation.View&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">xtype</span><span class="o">:</span> <span class="s1">&#39;mainview&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">requires</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;HelloSenCha.view.Contacts&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;HelloSenCha.view.contact.Show&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;HelloSenCha.view.contact.Edit&#39;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'><span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    requires: [
-        'HelloSenCha.view.Contacts',
-        'HelloSenCha.view.contact.Show',
-        'HelloSenCha.view.contact.Edit'
-    ],
-...
-</code></pre>
 
-<p>类名规则为：项目名称.目录1.目录2&hellip;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
+<p>
+类名规则为：项目名称.目录1.目录2&hellip;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
 </div>
 
 

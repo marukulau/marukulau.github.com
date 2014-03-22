@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sencha Touch | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/sencha-touch/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-22T01:28:17+08:00</updated>
+  <updated>2014-03-22T10:51:43+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -280,7 +280,7 @@ formpanel               Ext.form.Panel
     <content type="html"><![CDATA[<h2>类的定义</h2>
 
 <p>Sencha Touch有自己的类定义方式，我们先来看个例子：
-``` javascript code</p>
+``` js</p>
 
 <pre><code>Ext.define('Animal', {
     config: {
@@ -305,6 +305,8 @@ formpanel               Ext.form.Panel
 
 <h2>类的继承</h2>
 
+<p>``` js</p>
+
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
 
@@ -314,9 +316,12 @@ formpanel               Ext.form.Panel
 });
 </code></pre>
 
-<p>我们定义了一个Human类继承自Animal，并重写speak()方法。</p>
+<p>```
+我们定义了一个Human类继承自Animal，并重写speak()方法。</p>
 
 <h2>类的实例化</h2>
+
+<p>``` js</p>
 
 <pre><code>var bob = Ext.create('Human', {
     name: 'Bob'
@@ -325,11 +330,13 @@ formpanel               Ext.form.Panel
 bob.speak(); //alerts 'Bob'
 </code></pre>
 
-<p>通过Ext.create()静态方法创建类实例。</p>
+<p>```
+通过Ext.create()静态方法创建类实例。</p>
 
 <h2>getter和setter方法</h2>
 
-<p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&lsquo;&rsquo;)。</p>
+<p>对应的属性会自动生成getter和setter方法，如上面继承的例子中的this.getName()，setter方法为：this.setName(&lsquo;&rsquo;)。<br/>
+``` js</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -340,7 +347,9 @@ bob.speak(); //alerts 'Bob'
 });
 </code></pre>
 
-<p>applyName()方法是在调用setter方法后自动回调的方法，上面例子将在调用setter方法后弹出确认窗口询问是否修改name的值，点击no的话则不进行修改。</p>
+<p><code>
+applyName()方法是在调用setter方法后自动回调的方法，上面例子将在调用setter方法后弹出确认窗口询问是否修改name的值，点击no的话则不进行修改。  
+</code> js</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -351,11 +360,13 @@ bob.speak(); //alerts 'Bob'
 });
 </code></pre>
 
-<p>updateName()方法则是在调用setter方法后并且改属性值已经修改了的情况下自动回调的。</p>
+<p>```
+updateName()方法则是在调用setter方法后并且改属性值已经修改了的情况下自动回调的。</p>
 
 <h2>依赖和动态加载</h2>
 
-<p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &lsquo;Ext.MessageBox'。</p>
+<p>有时候我们需要在类里面使用某个类的，这时候我们需要加入这个类的引用声明：requires: &lsquo;Ext.MessageBox'。
+``` js</p>
 
 <pre><code>Ext.define('Human', {
     extend: 'Animal',
@@ -368,11 +379,13 @@ bob.speak(); //alerts 'Bob'
 });
 </code></pre>
 
-<p>加入引用声明后，Sencha Touch会自动判断是否Ext.MessageBox已经加载，如果未加载的话则会自动通过AJAX加载对应的类文件。</p>
+<p>```
+加入引用声明后，Sencha Touch会自动判断是否Ext.MessageBox已经加载，如果未加载的话则会自动通过AJAX加载对应的类文件。</p>
 
 <h2>命名空间</h2>
 
-<p>以上一篇文章的Main.js文件为例</p>
+<p>以上一篇文章的Main.js文件为例
+``` js</p>
 
 <pre><code>Ext.define('HelloSenCha.view.Main', {
     extend: 'Ext.navigation.View',
@@ -386,7 +399,8 @@ bob.speak(); //alerts 'Bob'
 ...
 </code></pre>
 
-<p>类名规则为：项目名称.目录1.目录2&hellip;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
+<p>```
+类名规则为：项目名称.目录1.目录2&hellip;类名，也就是说，Main.js和Contacts.js文件在view文件夹下，Show.js和Edit.js在view/contact文件夹下。</p>
 ]]></content>
   </entry>
   

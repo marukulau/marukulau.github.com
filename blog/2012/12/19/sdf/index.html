@@ -134,53 +134,94 @@
 
 <p>缓存：</p>
 
-<pre><code>"appCache": {
-    /**
-     * List of items in the CACHE MANIFEST section
-     */
-    "cache": [
-        "index.html",
-        "contacts.json" //加入新增的数据文件
-    ],
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="s2">&quot;appCache&quot;</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="cm">/**</span>
+</span><span class='line'><span class="cm">     * List of items in the CACHE MANIFEST section</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="s2">&quot;cache&quot;</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;index.html&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s2">&quot;contacts.json&quot;</span> <span class="c1">//加入新增的数据文件</span>
+</span><span class='line'>    <span class="p">],</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>资源：</p>
 
-<pre><code> /**
- * Extra resources to be copied along when build
- */
-"resources": [
-    "contacts.json", //加入新增的数据文件
-    "resources/images",
-    "resources/icons",
-    "resources/startup"
-],
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'> <span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Extra resources to be copied along when build</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="s2">&quot;resources&quot;</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>  <span class="s2">&quot;contacts.json&quot;</span><span class="p">,</span> <span class="c1">//加入新增的数据文件</span>
+</span><span class='line'>    <span class="s2">&quot;resources/images&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;resources/icons&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;resources/startup&quot;</span>
+</span><span class='line'><span class="p">],</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>修改app/view/Main.js文件</h3>
 
-<pre><code>Ext.define('AddressBook.view.Main', {
-    extend: 'Ext.navigation.View',
-    xtype: 'mainview', //自定义xtype
-    config: {
-        scrollable: 'vertical',
-        items: [
-            {
-                xtype: 'list',
-                title: 'Contacts', //设置navigationView的title
-                id: 'contact-list',
-                itemTpl: [
-                    '&lt;div&gt;&lt;img src=\'\' /&gt; {firstName}&amp;nbsp;{lastName}&lt;/div&gt;' //自定义list cell的模版
-                ],
-                store: 'contacts', //指定数据仓库
-                grouped: true,
-                indexBar: true
-            }
-        ]
-    }
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AddressBook.view.Main&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.navigation.View&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">xtype</span><span class="o">:</span> <span class="s1">&#39;mainview&#39;</span><span class="p">,</span> <span class="c1">//自定义xtype</span>
+</span><span class='line'>    <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">scrollable</span><span class="o">:</span> <span class="s1">&#39;vertical&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">items</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>            <span class="p">{</span>
+</span><span class='line'>                <span class="nx">xtype</span><span class="o">:</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Contacts&#39;</span><span class="p">,</span> <span class="c1">//设置navigationView的title</span>
+</span><span class='line'>              <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;contact-list&#39;</span><span class="p">,</span>
+</span><span class='line'>                <span class="nx">itemTpl</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>                    <span class="s1">&#39;&lt;div&gt;&lt;img src=\&#39;\&#39; /&gt; {firstName}&amp;nbsp;{lastName}&lt;/div&gt;&#39;</span> <span class="c1">//自定义list cell的模版</span>
+</span><span class='line'>                <span class="p">],</span>
+</span><span class='line'>                <span class="nx">store</span><span class="o">:</span> <span class="s1">&#39;contacts&#39;</span><span class="p">,</span> <span class="c1">//指定数据仓库</span>
+</span><span class='line'>                <span class="nx">grouped</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>                <span class="nx">indexBar</span><span class="o">:</span> <span class="kc">true</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">]</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-});
-</code></pre>
 
 <p>由于我们需要点击该列表进入对应的联系人详情页，所以应该选择navigation控件，把Main类的父类设为navigation.View:<code>extend: 'Ext.navigation.View'</code>。</p>
 
@@ -188,47 +229,87 @@
 
 <p><em>contacts.js：</em></p>
 
-<pre><code>Ext.define('AddressBook.store.contacts', {
-    extend: 'Ext.data.Store',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AddressBook.store.contacts&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.data.Store&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">requires</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s1">&#39;AddressBook.model.ContactModel&#39;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">autoLoad</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">model</span><span class="o">:</span> <span class="s1">&#39;AddressBook.model.ContactModel&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">remoteSort</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">storeId</span><span class="o">:</span> <span class="s1">&#39;contacts&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">proxy</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ajax&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;contacts.json&#39;</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="nx">sorters</span><span class="o">:</span> <span class="s1">&#39;firstName&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">grouper</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">groupFn</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nx">record</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;lastName&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    requires: [
-        'AddressBook.model.ContactModel'
-    ],
-
-    config: {
-        autoLoad: true,
-        model: 'AddressBook.model.ContactModel',
-        remoteSort: false,
-        storeId: 'contacts',
-        proxy: {
-            type: 'ajax',
-            url: 'contacts.json'
-        },
-        sorters: 'firstName',
-        grouper: {
-            groupFn: function(record) {
-                return record.get('lastName')[0];
-            }
-        }
-
-    }
-});
-</code></pre>
 
 <p><em>ContactModel.js：</em></p>
 
-<pre><code>Ext.define('AddressBook.model.ContactModel', {
-    extend: 'Ext.data.Model',
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">Ext</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;AddressBook.model.ContactModel&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">extend</span><span class="o">:</span> <span class="s1">&#39;Ext.data.Model&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">config</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">fields</span><span class="o">:</span> <span class="p">[</span>
+</span><span class='line'>            <span class="s1">&#39;firstName&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="s1">&#39;lastName&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="s1">&#39;title&#39;</span>
+</span><span class='line'>        <span class="p">]</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    config: {
-        fields: [
-            'firstName',
-            'lastName',
-            'title'
-        ]
-    }
-});
-</code></pre>
+
+
 </div>
 
 

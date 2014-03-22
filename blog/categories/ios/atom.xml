@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-23T00:44:21+08:00</updated>
+  <updated>2014-03-23T00:48:12+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -69,7 +69,8 @@
 
 <h2>转换类</h2>
 
-<p>老外写的转换类，地址不记得了，直接上代码</p>
+<p>老外写的转换类，地址不记得了，直接上代码
+``` objc</p>
 
 <pre><code> /*ISO8601DateFormatter.h
  *
@@ -1047,14 +1048,20 @@ static BOOL is_leap_year(NSUInteger year) {
     ((year %   4U) == 0U)
     &amp;&amp; (((year % 100U) != 0U)
         ||  ((year % 400U) == 0U));
-}
 </code></pre>
 
+<p>  }
+```</p>
+
 <h2>用法</h2>
+
+<p>```</p>
 
 <pre><code>ISO8601DateFormatter *dateFormat = [[[ISO8601DateFormatter alloc] init] autorelease];
 NSDate *serverTime = [dateFormat dateFromString:dateTime];
 </code></pre>
+
+<p>```</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sencha Touch | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/sencha-touch/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-23T00:44:21+08:00</updated>
+  <updated>2014-03-23T00:48:12+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -36,7 +36,8 @@
 </ul>
 
 
-<p>缓存：</p>
+<p>缓存：
+``` js</p>
 
 <pre><code>"appCache": {
     /**
@@ -48,7 +49,9 @@
     ],
 </code></pre>
 
-<p>资源：</p>
+<p><code>
+资源：
+</code></p>
 
 <pre><code> /**
  * Extra resources to be copied along when build
@@ -61,7 +64,11 @@
 ],
 </code></pre>
 
+<p>```</p>
+
 <h3>修改app/view/Main.js文件</h3>
+
+<p>```</p>
 
 <pre><code>Ext.define('AddressBook.view.Main', {
     extend: 'Ext.navigation.View',
@@ -86,11 +93,13 @@
 });
 </code></pre>
 
-<p>由于我们需要点击该列表进入对应的联系人详情页，所以应该选择navigation控件，把Main类的父类设为navigation.View:<code>extend: 'Ext.navigation.View'</code>。</p>
+<p><code>``
+由于我们需要点击该列表进入对应的联系人详情页，所以应该选择navigation控件，把Main类的父类设为navigation.View:</code>extend: &lsquo;Ext.navigation.View&rsquo;`。</p>
 
 <h3>新建app/store/contacts.js和app/model/ContactModel.js文件</h3>
 
-<p><em>contacts.js：</em></p>
+<p><em>contacts.js：</em>
+```</p>
 
 <pre><code>Ext.define('AddressBook.store.contacts', {
     extend: 'Ext.data.Store',
@@ -119,7 +128,9 @@
 });
 </code></pre>
 
-<p><em>ContactModel.js：</em></p>
+<p><code>
+*ContactModel.js：*
+</code></p>
 
 <pre><code>Ext.define('AddressBook.model.ContactModel', {
     extend: 'Ext.data.Model',
@@ -133,6 +144,8 @@
     }
 });
 </code></pre>
+
+<p>```</p>
 ]]></content>
   </entry>
   

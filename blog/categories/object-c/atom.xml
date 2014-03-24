@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Object C | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/object-c/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-24T21:38:18+08:00</updated>
+  <updated>2014-03-24T21:49:05+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -23,7 +23,7 @@ xib中的view无法设置auto mask的必须通过代码设，不设定的话有�
 两边都不设置mask则为居中显示。</p>
 
 <p>以下两方法为rotate是自动调用，如果该viewController没有navigationController时，以下两方法可能不被调用，需要自己加入通知中心。
-<code>
+<code>objc
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 </code>
 调用此方法时superview.bounds已经改变</p>
@@ -31,7 +31,7 @@ xib中的view无法设置auto mask的必须通过代码设，不设定的话有�
 <!-- more -->
 
 
-<p><code>objc
+<p><code>
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 </code>
 调用此方法时superview.bounds未改变</p>

@@ -121,8 +121,9 @@ xib中的view无法设置auto mask的必须通过代码设，不设定的话有�
 
 <p>以下两方法为rotate是自动调用，如果该viewController没有navigationController时，以下两方法可能不被调用，需要自己加入通知中心。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRotateFromInterfaceOrientation:</span><span class="p">(</span><span class="n">UIInterfaceOrientation</span><span class="p">)</span><span class="nv">fromInterfaceOrientation</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>调用此方法时superview.bounds已经改变</p>

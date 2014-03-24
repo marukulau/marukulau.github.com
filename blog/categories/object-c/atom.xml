@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Object C | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/object-c/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-23T00:48:12+08:00</updated>
+  <updated>2014-03-24T21:30:07+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -12,6 +12,171 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[横屏竖屏自适应总结]]></title>
+    <link href="http://marukulau.github.io/blog/2014/03/24/heng-ping-shu-ping-zi-gua-ying-zong-jie/"/>
+    <updated>2014-03-24T11:47:25+08:00</updated>
+    <id>http://marukulau.github.io/blog/2014/03/24/heng-ping-shu-ping-zi-gua-ying-zong-jie</id>
+    <content type="html"><![CDATA[<p>所有frame的高度和宽度应该通过superview的bounds计算。
+xib中的view无法设置auto mask的必须通过代码设，不设定的话有时可以自动适应，但是有时会出现有部分黑屏的情况。
+两边都不设置mask则为居中显示。</p>
+
+<p>以下两方法为rotate是自动调用，如果该viewController没有navigationController时，以下两方法可能不被调用，需要自己加入通知中心。
+<code>
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+</code>
+调用此方法时superview.bounds已经改变</p>
+
+<!-- more -->
+
+
+<p><code>objc
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+</code>
+调用此方法时superview.bounds未改变</p>
+
+<p>获取当前屏幕方向
+<code>
+UIInterfaceOrientation currentOrient=[UIApplication  sharedApplication].statusBarOrientation;
+</code></p>
+
+<p>判断当前设备是否为4寸屏
+```</p>
+
+<h1>define isIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)</h1>
+
+<p>```</p>
+
+<p>3.5与4寸屏高度相差88.f,宽度一样为320.f
+自适应横屏一般修改automask的autowidth,导航栏和一般控件主要变化的是宽度，高度也变化的一般是可以tableView和scrollView等。</p>
+
+<p>有时候横屏没有正确自适应一般是superview.bounds未改变，设置subview frame的时机不对。</p>
+
+<p><em>如果想让某一个ViewController固定某个方向不旋转，方法如下：
+1.修改AppDelegate.m，加入下列代码，其中_enablePortrait为新增的变量，用于判断是否要进行旋转。
+```
+&ndash; (NSUInteger)application:(UIApplication </em>)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{</p>
+
+<pre><code>if(_enablePortrait)
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+return UIInterfaceOrientationMaskLandscape | UIInterfaceOrientationMaskPortrait;
+</code></pre>
+
+<p>}
+<code>
+2.在不需要旋转的viewController中的下列方法中加入以下代码即可。
+</code>
+&ndash;(void)viewWillAppear:(BOOL)animated
+{</p>
+
+<pre><code>AppDelegate *delegate = (AppDelegate *)[UIApplicationsharedApplication].delegate;
+delegate.enablePortrait = YES;
+</code></pre>
+
+<p>}</p>
+
+<ul>
+<li>(void)viewWillDisappear:(BOOL)animated
+{
+  [super viewWillDisappear:animated];
+  AppDelegate <em>delegate = (AppDelegate </em>)[UIApplicationsharedApplication].delegate;
+  delegate.enablePortrait = NO;
+}
+```</li>
+</ul>
+
+
+<p>由于使用pushViewController会导致所进入的视图会根据前一视图的方向显示，所以需要用以下方法hack一下，才能使其自动根据设定的方向旋转。
+```
+&ndash; (void)updateOrientation
+{</p>
+
+<pre><code>[[UIApplicationsharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortraitanimated:NO];
+UIViewController *viewController = [[UIViewControlleralloc] init];
+[selfpresentModalViewController:viewController animated:NO];
+[selfdismissModalViewControllerAnimated:NO];
+[viewController release];
+</code></pre>
+
+<p>}
+```</p>
+
+<p>*iOS6旋转发生当时屏幕不旋转的原因可能是：
+```</p>
+
+<pre><code>    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
+        self.window.rootViewController = gameNavController;
+    }else {
+        [self.window addSubview:gameNavController.view];
+
+    }
+</code></pre>
+
+<p>```</p>
+
+<p>在应用中有时需要制定某些页面是Portrait或者landscape，这时需要在info.plist文件加入对这些方向的支持。
+如果window的rootViewController是NavigationController则需继承该类写入：
+```
+//iOS6以下版本
+&ndash; (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{</p>
+
+<pre><code>return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
+</code></pre>
+
+<p>}
+//iOS6及以上版本
+&ndash; (BOOL)shouldAutorotate
+{</p>
+
+<pre><code>return YES;
+</code></pre>
+
+<p>}</p>
+
+<ul>
+<li>(NSUInteger)supportedInterfaceOrientations
+{
+  return UIInterfaceOrientationMaskLandscape;</li>
+</ul>
+
+
+<p>}
+```</p>
+
+<p>由此则全局默认情况下只支持landscape。
+注意：navigationController在其子类中指定，在push进去的viewController指定则是无效。</p>
+
+<p>有效的情况为使用presentModalViewController或者其他形式的present，在present的viewController中重写这三个方法，可以限制其当前的方向只为portrait.
+```
+&ndash; (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{</p>
+
+<pre><code>return UIInterfaceOrientationPortrait == toInterfaceOrientation;
+</code></pre>
+
+<p>}</p>
+
+<ul>
+<li><p>(BOOL)shouldAutorotate
+{
+  return YES;
+}</p></li>
+<li><p>(NSUInteger)supportedInterfaceOrientations
+{
+  return UIInterfaceOrientationMaskPortrait;</p></li>
+</ul>
+
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[自定义UITextField背景]]></title>

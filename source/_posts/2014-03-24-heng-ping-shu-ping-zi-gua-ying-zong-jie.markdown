@@ -26,7 +26,7 @@ xib中的view无法设置auto mask的必须通过代码设，不设定的话有�
 
 获取当前屏幕方向
 ```
-UIInterfaceOrientation currentOrient=[UIApplication  sharedApplication].statusBarOrientation;
+UIInterfaceOrientation currentOrient = [UIApplication  sharedApplication].statusBarOrientation;
 ```
 
 
@@ -82,8 +82,8 @@ UIInterfaceOrientation currentOrient=[UIApplication  sharedApplication].statusBa
 {
     [[UIApplicationsharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortraitanimated:NO];
     UIViewController *viewController = [[UIViewControlleralloc] init];
-    [selfpresentModalViewController:viewController animated:NO];
-    [selfdismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:viewController animated:NO];
+    [self dismissModalViewControllerAnimated:NO];
     [viewController release];
 }
 ```

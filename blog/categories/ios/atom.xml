@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-24T21:30:07+08:00</updated>
+  <updated>2014-03-24T21:34:02+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -38,7 +38,7 @@ xib中的view无法设置auto mask的必须通过代码设，不设定的话有�
 
 <p>获取当前屏幕方向
 <code>
-UIInterfaceOrientation currentOrient=[UIApplication  sharedApplication].statusBarOrientation;
+UIInterfaceOrientation currentOrient = [UIApplication  sharedApplication].statusBarOrientation;
 </code></p>
 
 <p>判断当前设备是否为4寸屏
@@ -98,8 +98,8 @@ delegate.enablePortrait = YES;
 
 <pre><code>[[UIApplicationsharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortraitanimated:NO];
 UIViewController *viewController = [[UIViewControlleralloc] init];
-[selfpresentModalViewController:viewController animated:NO];
-[selfdismissModalViewControllerAnimated:NO];
+[self presentModalViewController:viewController animated:NO];
+[self dismissModalViewControllerAnimated:NO];
 [viewController release];
 </code></pre>
 

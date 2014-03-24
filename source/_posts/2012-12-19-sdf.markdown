@@ -18,7 +18,7 @@ categories: [Sencha Touch]
 - 修改app.json配置文件。
 
 缓存：
-
+``` js
 	"appCache": {
         /**
          * List of items in the CACHE MANIFEST section
@@ -27,9 +27,9 @@ categories: [Sencha Touch]
             "index.html",
 			"contacts.json" //加入新增的数据文件
         ],
-
+```
 资源：
-
+```
 	 /**
      * Extra resources to be copied along when build
      */
@@ -39,9 +39,9 @@ categories: [Sencha Touch]
         "resources/icons",
         "resources/startup"
     ],
-
+```
 ### 修改app/view/Main.js文件
-
+```
 	Ext.define('AddressBook.view.Main', {
 	    extend: 'Ext.navigation.View',
 		xtype: 'mainview', //自定义xtype
@@ -63,12 +63,12 @@ categories: [Sencha Touch]
 	    }
 	
 	});
-
+```
 由于我们需要点击该列表进入对应的联系人详情页，所以应该选择navigation控件，把Main类的父类设为navigation.View:`extend: 'Ext.navigation.View'`。
 
 ###新建app/store/contacts.js和app/model/ContactModel.js文件
 *contacts.js：*
-
+```
 	Ext.define('AddressBook.store.contacts', {
 	    extend: 'Ext.data.Store',
 	
@@ -94,9 +94,9 @@ categories: [Sencha Touch]
 	
 	    }
 	});
-
+```
 *ContactModel.js：*
-
+```
 	Ext.define('AddressBook.model.ContactModel', {
 	    extend: 'Ext.data.Model',
 	
@@ -108,5 +108,5 @@ categories: [Sencha Touch]
 	        ]
 	    }
 	});
-
+```
 

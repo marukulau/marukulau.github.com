@@ -11,13 +11,13 @@ xib中的view无法设置auto mask的必须通过代码设，不设定的话有�
 两边都不设置mask则为居中显示。
 
 以下两方法为rotate是自动调用，如果该viewController没有navigationController时，以下两方法可能不被调用，需要自己加入通知中心。
-```
+``` objc
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 ```
 调用此方法时superview.bounds已经改变
 
 <!-- more -->
-``` objc
+```
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 ```
 调用此方法时superview.bounds未改变

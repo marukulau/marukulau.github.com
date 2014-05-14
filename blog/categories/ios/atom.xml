@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-03-24T21:49:05+08:00</updated>
+  <updated>2014-05-14T21:55:27+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Autolayout使用笔记]]></title>
+    <link href="http://marukulau.github.io/blog/2014/05/14/autolayoutshi-yong-bi-ji/"/>
+    <updated>2014-05-14T21:52:08+08:00</updated>
+    <id>http://marukulau.github.io/blog/2014/05/14/autolayoutshi-yong-bi-ji</id>
+    <content type="html"><![CDATA[<p>iOS6开始就引入了autolayout特性，使用autolayout进行自动布局确实方便了很多，下面是autolayout使用的一些心得。</p>
+
+<p>每次设置完Label的text属性后，需要使用</p>
+
+<p><code>objc
+[self setNeedsUpdateConstraints];
+[self updateConstraintsIfNeeded];
+</code></p>
+
+<p>这两个方法进行更新布局，接着使用</p>
+
+<p><code>
+[self setNeedsLayout];
+[self layoutIfNeeded];
+</code></p>
+
+<p>更新控件的frame等属性。</p>
+
+<p>使用以下方法进行计算当前view的最小size：</p>
+
+<p><code>
+CGFloat height = [self systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+</code></p>
+
+<p>计算结束后记得设置当前view的实际高度：</p>
+
+<p><code>
+self.height = height;
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[横屏竖屏自适应总结]]></title>

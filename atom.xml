@@ -4,7 +4,7 @@
   <title><![CDATA[Maruku's Blog]]></title>
   <link href="http://marukulau.github.io/atom.xml" rel="self"/>
   <link href="http://marukulau.github.io/"/>
-  <updated>2014-05-14T22:21:28+08:00</updated>
+  <updated>2014-05-14T22:22:38+08:00</updated>
   <id>http://marukulau.github.io/</id>
   <author>
     <name><![CDATA[Maruku Lau]]></name>
@@ -20,11 +20,12 @@
     <id>http://marukulau.github.io/blog/2014/05/14/gem-install-rails-chu-xian-cuo-wu-cannot-load-such-file-openssl</id>
     <content type="html"><![CDATA[<p>今天想要在cocoapods加入一个库，用<code>pod install</code>后出现这个错误，百思不得其解，上网找了一圈发现，这个问题应该是更新了Mac OS X导致的，解决方法如下：</p>
 
-<blockquote><p>brew install openssl</p>
+<ul>
+<li><p>brew install openssl</p></li>
+<li><p>rvm pkg install openssl</p></li>
+<li><p>rvm reinstall [version]</p></li>
+</ul>
 
-<p>rvm pkg install openssl</p>
-
-<p>rvm reinstall [version]</p></blockquote>
 
 <p>以上命令执行一遍，问题解决。</p>
 ]]></content>

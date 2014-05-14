@@ -1,120 +1,91 @@
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析 - Maruku's Blog</title>
-  <meta name="author" content="Maruku Lau">
 
-  
-  
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析 - Maruku's Blog</title>
+	<meta name="author" content="Maruku Lau">
+
+	
+	<meta name="description" content="使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析 从第一篇文章我们知道了如何通过sencha命令创建Sencha Touch项目，而创建的项目里面已经包含了不少文件，如要开始写代码，我们有必要先了解所创建项目的文件结构及代码。 文件结构 在终端输入 $ &hellip;">
+	
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <link rel="canonical" href="http://marukulau.github.io/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi">
-  <link href="/favicon.png" type="image/png" rel="icon">
-  <link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
-
-  <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-
-  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+	<link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://marukulau.github.io/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
   
 
 </head>
 
-  <body   >
-    <div id="wrap">
-      <header role="banner">
-        <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Maruku's Blog</a>
-        </div>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/">Blog</a>
-                </li>
-                <li >
-                    <a href="/blog/archives">Archives</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
-                        <span class="visible-xs">RSS</span>
-                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
-                    </a>
-                </li>
-                
-            </ul>
-            
-                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
-                    <input type="hidden" name="q" value="site:marukulau.github.io">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="q" placeholder="Search">
-                    </div>
-                </form>
-            
-        </div>
-    </div>
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://about.me/shashankmehta">About</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
 </nav>
-
-
-      </header>
-      <div id="main" class="container">
-        <div id="content">
-          <div class="row">
-  <div class="page-content col-md-9">
-    <article class="hentry" role="article">
-      
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-19T09:20:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
-        
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://marukulau.github.io">Comments</a>
-        
-      </p>
-    
-    
-    <h1 class="entry-title">
-        使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析
-        
-    </h1>
-    
-  </header>
-
-
-<div class="entry-content clearfix"><p>从第一篇文章我们知道了如何通过sencha命令创建Sencha Touch项目，而创建的项目里面已经包含了不少文件，如要开始写代码，我们有必要先了解所创建项目的文件结构及代码。</p>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析</h1>
+	<div class="entry-content" itemprop="articleBody"><p>从第一篇文章我们知道了如何通过sencha命令创建Sencha Touch项目，而创建的项目里面已经包含了不少文件，如要开始写代码，我们有必要先了解所创建项目的文件结构及代码。</p>
 
 <!-- more -->
 
@@ -244,118 +215,38 @@ formpanel               Ext.form.Panel
 </code></pre>
 </div>
 
+</article>
 
-      <footer>
-        <p class="meta text-muted">
-          
-  
-
-<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">Maruku Lau</span></span>
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-19T09:20:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
-          
-
-<span class="glyphicon glyphicon-tags"></span>&nbsp;
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/sencha-touch/'>Sencha Touch</a>
-  
-</span>
-
-
-        </p>
-        
-          <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://marukulau.github.io/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/" data-via="" data-counturl="http://marukulau.github.io/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/" >Tweet</a>
-  
-  
-  
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
-        
-        
-          <ul class="meta text-muted pager">
-            
-            <li class="previous"><a href="/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/" title="Previous Post: 使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用">&laquo; 使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用</a></li>
-            
-            
-            <li class="next"><a href="/blog/2012/12/19/sdf/" title="Next Post: Shecha Touch实例学习">Shecha Touch实例学习 &raquo;</a></li>
-            
-          </ul>
-        
-      </footer>
-    </article>
-    
-      <section>
-        <h1>Comments</h1>
-        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-      </section>
-    
-  </div>
 
-  
-  <aside class="sidebar col-md-3">
-    
-      <section class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Recent Posts</h3>
-  </div>
-  
-  <div id="recent_posts" class="list-group">
-    
-    <a class="list-group-item " href="/blog/2014/05/14/gem-install-rails-chu-xian-cuo-wu-cannot-load-such-file-openssl/">Gem Install 出现错误 Cannot Load Such File -- Openssl</a>
-    
-    <a class="list-group-item " href="/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/">About System Volume Progress View Rotation Issue</a>
-    
-    <a class="list-group-item " href="/blog/2014/05/14/autolayoutshi-yong-bi-ji/">Autolayout使用笔记</a>
-    
-    <a class="list-group-item " href="/blog/2014/03/24/heng-ping-shu-ping-zi-gua-ying-zong-jie/">横屏竖屏自适应总结</a>
-    
-    <a class="list-group-item " href="/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/">自定义UITextField背景</a>
-    
-  </div>
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 </section>
-
-
-
-
-
-
-    
-  </aside>
-  
 </div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
 
-        </div>
-      </div>
-    </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - Maruku Lau<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
-  </small>
-</p>
+    Maruku Lau
 
-</div>
-</footer>
-    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+		</div>
+	</div>
+	<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/javascripts/modernizr-2.0.js"></script>
 
 
@@ -370,7 +261,7 @@ formpanel               Ext.form.Panel
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -394,6 +285,5 @@ formpanel               Ext.form.Panel
 
 
 
-
-  </body>
+</body>
 </html>

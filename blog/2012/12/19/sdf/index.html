@@ -1,120 +1,91 @@
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Shecha Touch实例学习 - Maruku's Blog</title>
-  <meta name="author" content="Maruku Lau">
 
-  
-  
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Shecha Touch实例学习 - Maruku's Blog</title>
+	<meta name="author" content="Maruku Lau">
+
+	
+	<meta name="description" content="Shecha Touch实例学习 通过前几篇文章的介绍，大家应该对Sencha Touch总体有了了解，现在已经可以开始做一些简单的应用。这一次我们要做的是一个简单通讯录应用。 原型图 开始工作之前我们先把思路整理一下，最好能先把原型图画一下。 开始编码 &hellip;">
+	
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <link rel="canonical" href="http://marukulau.github.io/blog/2012/12/19/sdf">
-  <link href="/favicon.png" type="image/png" rel="icon">
-  <link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
-
-  <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-
-  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+	<link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://marukulau.github.io/blog/2012/12/19/sdf/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
   
 
 </head>
 
-  <body   >
-    <div id="wrap">
-      <header role="banner">
-        <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Maruku's Blog</a>
-        </div>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/">Blog</a>
-                </li>
-                <li >
-                    <a href="/blog/archives">Archives</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
-                        <span class="visible-xs">RSS</span>
-                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
-                    </a>
-                </li>
-                
-            </ul>
-            
-                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
-                    <input type="hidden" name="q" value="site:marukulau.github.io">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="q" placeholder="Search">
-                    </div>
-                </form>
-            
-        </div>
-    </div>
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+	
+</div>
+
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="http://about.me/shashankmehta">About</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+</ul>
 </nav>
-
-
-      </header>
-      <div id="main" class="container">
-        <div id="content">
-          <div class="row">
-  <div class="page-content col-md-9">
-    <article class="hentry" role="article">
-      
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-19T15:38:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
-        
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://marukulau.github.io">Comments</a>
-        
-      </p>
-    
-    
-    <h1 class="entry-title">
-        Shecha Touch实例学习
-        
-    </h1>
-    
-  </header>
-
-
-<div class="entry-content clearfix"><p>通过前几篇文章的介绍，大家应该对Sencha Touch总体有了了解，现在已经可以开始做一些简单的应用。这一次我们要做的是一个简单通讯录应用。</p>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	
+    	
+			<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Shecha Touch实例学习</h1>
+	<div class="entry-content" itemprop="articleBody"><p>通过前几篇文章的介绍，大家应该对Sencha Touch总体有了了解，现在已经可以开始做一些简单的应用。这一次我们要做的是一个简单通讯录应用。</p>
 
 <!-- more -->
 
@@ -312,118 +283,38 @@
 
 </div>
 
+</article>
 
-      <footer>
-        <p class="meta text-muted">
-          
-  
-
-<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">Maruku Lau</span></span>
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-19T15:38:00+08:00" pubdate data-updated="true">Dec 19<span>th</span>, 2012</time>
-          
-
-<span class="glyphicon glyphicon-tags"></span>&nbsp;
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/sencha-touch/'>Sencha Touch</a>
-  
-</span>
-
-
-        </p>
-        
-          <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://marukulau.github.io/blog/2012/12/19/sdf/" data-via="" data-counturl="http://marukulau.github.io/blog/2012/12/19/sdf/" >Tweet</a>
-  
-  
-  
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
-        
-        
-          <ul class="meta text-muted pager">
-            
-            <li class="previous"><a href="/blog/2012/12/19/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-xiang-mu-wen-jian-ji-jie-gou-fen-xi/" title="Previous Post: 使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析">&laquo; 使用Sencha Touch 2.1进行iOS开发 —— 项目文件结构及代码分析</a></li>
-            
-            
-            <li class="next"><a href="/blog/2013/04/10/dot-netde-datetimeshi-jian-ge-shi-zhuan-cheng-nsdate/" title="Next Post: .net的DateTime时间格式转成NSDate">.net的DateTime时间格式转成NSDate &raquo;</a></li>
-            
-          </ul>
-        
-      </footer>
-    </article>
-    
-      <section>
-        <h1>Comments</h1>
-        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-      </section>
-    
-  </div>
 
-  
-  <aside class="sidebar col-md-3">
-    
-      <section class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Recent Posts</h3>
-  </div>
-  
-  <div id="recent_posts" class="list-group">
-    
-    <a class="list-group-item " href="/blog/2014/05/14/gem-install-rails-chu-xian-cuo-wu-cannot-load-such-file-openssl/">Gem Install 出现错误 Cannot Load Such File -- Openssl</a>
-    
-    <a class="list-group-item " href="/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/">About System Volume Progress View Rotation Issue</a>
-    
-    <a class="list-group-item " href="/blog/2014/05/14/autolayoutshi-yong-bi-ji/">Autolayout使用笔记</a>
-    
-    <a class="list-group-item " href="/blog/2014/03/24/heng-ping-shu-ping-zi-gua-ying-zong-jie/">横屏竖屏自适应总结</a>
-    
-    <a class="list-group-item " href="/blog/2013/04/10/zi-ding-yi-uitextfieldbei-jing/">自定义UITextField背景</a>
-    
-  </div>
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 </section>
-
-
-
-
-
-
-    
-  </aside>
-  
 </div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
 
-        </div>
-      </div>
-    </div>
-    <footer role="contentinfo"><div class="container">
-    <p class="text-muted credits">
-  Copyright &copy; 2014 - Maruku Lau<br>
-  <small>
-      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
-      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
-  </small>
-</p>
+    Maruku Lau
 
-</div>
-</footer>
-    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+		</div>
+	</div>
+	<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/javascripts/modernizr-2.0.js"></script>
 
 
@@ -438,7 +329,7 @@
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -462,6 +353,5 @@
 
 
 
-
-  </body>
+</body>
 </html>

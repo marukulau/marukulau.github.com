@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>使用Sencha Touch 2.1进行iOS开发 —— 开发环境搭建 - Maruku's Blog</title>
+  <title>About system volume progress view rotation issue - Maruku's Blog</title>
   <meta name="author" content="Maruku Lau">
 
   
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian">
+  <link rel="canonical" href="http://marukulau.github.io/blog/2014/05/14/about-system-volume-progress-view-rotation-issue">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="Maruku's Blog" type="application/atom+xml">
 
@@ -98,7 +98,7 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-14T15:36:00+08:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-05-14T22:10:14+08:00" pubdate data-updated="true">May 14<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://marukulau.github.io">Comments</a>
@@ -107,78 +107,44 @@
     
     
     <h1 class="entry-title">
-        使用Sencha Touch 2.1进行iOS开发 —— 开发环境搭建
+        About System Volume Progress View Rotation Issue
         
     </h1>
     
   </header>
 
 
-<div class="entry-content clearfix"><p>最近由于要用到Sencha Touch 2.1进行项目的开发，于是开始了对Sencha Touch的学习，学习Sencha Touch第一步当然是搭建开发环境。</p>
+<div class="entry-content clearfix"><p>使用MPVolumeView时 system volume progress view 则不会出现， 不过如果有时想同时出现自己定制的volume bar和 system volume progress view时，这时就不能使用MPVolumeView了，需要自己使用UISlider自定义UI和关联逻辑进行实现。</p>
 
-<h2>开发环境搭建</h2>
+<p>然而，如果app设定为只是Landscape方向的话，system volume progress view可能就回发生rotation的问题。例如在竖屏的情况下打开app， app自动旋转到landscape方向展示，但是这时使用设备的音量调节按钮进行调节声音，可能会发现system volume progress view显示的方向还是处于竖屏的方向，没有自动旋转为横屏，解决方法如下：</p>
 
-<h3>Sencha iOS开发基本环境</h3>
+<p>由于app里面虽说大部分只支持横屏，但是，也有需要支持竖屏的情况，如查看pdf。
+于是需要在AppDelegate里加入方法：</p>
 
-<ul>
-<li>Mac OSX</li>
-<li>Xcode</li>
-<li>Sencha Touch SDK</li>
-</ul>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">supportedInterfaceOrientationsForWindow:</span><span class="p">(</span><span class="n">UIWindow</span> <span class="o">*</span><span class="p">)</span><span class="nv">window</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="n">UIInterfaceOrientationMaskAll</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<!-- more -->
+<p>支持所有方向，具体支持的方向有ViewController里面的autoRotation方法返回的值决定。</p>
 
+<p>修改xxx-Info.plist文件的Supported interface orientations (iPad) 项，去掉竖直方向的两个参数。只剩下landscape两个方向。</p>
 
-<h3>Sencha Touch SDK下载</h3>
-
-<p>开发环境搭建的第一步当然就是下载SDK，Sencha Touch 2.1的SDK可以到官网下载：<a href="http://www.sencha.com/products/touch/download/">下载页面</a>, 这里需要填个邮箱地址，随便填一个地址就可以了，会自动跳转到下载页面。</p>
-
-<h3>创建Sencha iOS项目</h3>
-
-<p>SDk下载好了之后就可以通过PhoneGap或者直接自己建个项目在webView里面加载Sencha页面就可以了。事实上还有第三种方法，就是Sencha Cmd，官方对Sencha Cmd的介绍是：</p>
-
-<blockquote><p>Sencha Cmd is a cross-platform command line tool that provides many automated tasks around the full life-cycle of your applications, from generating a new project to deploying an application to production.</p></blockquote>
-
-<p>也就是说，我们可以直接使用Sencha Cmd这个工具进行全生命周期的应用开发。另外，官网还有个Sencha SDK Tools，不过官网也建议：</p>
-
-<blockquote><p>Please note: Sencha SDK Tools are designed to be used with Sencha Touch 2 and Ext JS 4.0 and are deprecated for the most current framework releases. For the current version of Sencha’s build tools, please refer to Sencha Cmd, our unified tool for Sencha’s JavaScript frameworks.</p></blockquote>
-
-<p>所以还是老老实实下载Sencha Cmd吧，Sencha Cmd <a href="http://www.sencha.com/products/sencha-cmd/download">下载地址</a>。</p>
-
-<p>下载后安装好就可以打开终端敲命令进行创建Sencha项目了，我们把项目创建在桌面，项目名称为HelloSencha，命令如下：</p>
-
-<pre><code>$ sencha generate app HelloSenCha ~/Desktop/HelloSenCha
-
-Sencha Cmd v3.0.0.250
-[INF]       init-properties:
-[INF]       init-sencha-command:
-[INF]       init:
-[INF]       -before-generate-workspace:
-[INF]       generate-workspace-impl:
-[WRN]       Ignoring @require ../version/Version.js in js/String.js
-[WRN]       Ignoring @require ../Ext-more.js in js/Format.js
-[INF]       -before-copy-framework-to-workspace:
-[INF]       copy-framework-to-workspace-impl:
-</code></pre>
-
-<p>等命令执行完毕后，到桌面就可以看到创建好的项目了。</p>
-
-<h3>编译项目</h3>
-
-<p>无需通过Xcode，我们就可以直接执行命令进行编译，编译结果将放在../build 文件夹下。</p>
-
-<pre><code>$ sencha package build ~/Desktop/HelloSenCha/packager.json
-</code></pre>
-
-<h3>运行项目</h3>
-
-<p>同样，我们无需打开Xcode，直接通过命令就可以把我们刚才创建的项目在iOS模拟器里面运行起来：</p>
-
-<pre><code>$ sencha package run ~/Desktop/HelloSenCha/packager.json
-</code></pre>
-
-<p>现在，我们已经知道了怎么创建、编译和部署项目了，接下来就可以进行Sencha Touch SDK的学习了。</p>
+<p>至此问题彻底解决。</p>
 </div>
 
 
@@ -202,13 +168,13 @@ Sencha Cmd v3.0.0.250
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2012-12-14T15:36:00+08:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-05-14T22:10:14+08:00" pubdate data-updated="true">May 14<span>th</span>, 2014</time>
           
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/sencha-touch/'>Sencha Touch</a>
+    <a class='category' href='/blog/categories/ios/'>iOS</a>
   
 </span>
 
@@ -217,7 +183,7 @@ Sencha Cmd v3.0.0.250
         
           <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/" data-via="" data-counturl="http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://marukulau.github.io/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/" data-via="" data-counturl="http://marukulau.github.io/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/" >Tweet</a>
   
   
   
@@ -227,8 +193,8 @@ Sencha Cmd v3.0.0.250
         
           <ul class="meta text-muted pager">
             
+            <li class="previous"><a href="/blog/2014/05/14/autolayoutshi-yong-bi-ji/" title="Previous Post: Autolayout使用笔记">&laquo; Autolayout使用笔记</a></li>
             
-            <li class="next"><a href="/blog/2012/12/18/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-lei-ding-yi/" title="Next Post: 使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用">使用Sencha Touch 2.1进行iOS开发 —— 类的定义与使用 &raquo;</a></li>
             
           </ul>
         
@@ -253,7 +219,7 @@ Sencha Cmd v3.0.0.250
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/">About System Volume Progress View Rotation Issue</a>
+    <a class="list-group-item active" href="/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/">About System Volume Progress View Rotation Issue</a>
     
     <a class="list-group-item " href="/blog/2014/05/14/autolayoutshi-yong-bi-ji/">Autolayout使用笔记</a>
     
@@ -299,8 +265,8 @@ Sencha Cmd v3.0.0.250
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/';
-        var disqus_url = 'http://marukulau.github.io/blog/2012/12/14/shi-yong-sencha-touch-2-dot-1jin-xing-ioskai-fa-kai-fa-huan-jing-da-jian/';
+        var disqus_identifier = 'http://marukulau.github.io/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/';
+        var disqus_url = 'http://marukulau.github.io/blog/2014/05/14/about-system-volume-progress-view-rotation-issue/';
         var disqus_script = 'embed.js';
       
     (function () {

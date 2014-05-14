@@ -49,6 +49,12 @@
         <lastmod>2014-05-14T22:11:31+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://marukulau.github.io/blog/2014/05/14/gem-install-rails-chu-xian-cuo-wu-cannot-load-such-file-openssl/
+        </loc>
+        <lastmod>2014-05-14T22:19:43+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://marukulau.github.io/assets/bootstrap/docs/about.html</loc>
         <lastmod>2014-03-24T21:26:16+08:00</lastmod>
     </url>
@@ -70,7 +76,7 @@
     </url>
     <url>
         <loc>http://marukulau.github.io/assets/bootstrap/docs/</loc>
-        <lastmod>2014-05-14T22:11:31+08:00</lastmod>
+        <lastmod>2014-05-14T22:19:43+08:00</lastmod>
     </url>
     <url>
         <loc>http://marukulau.github.io/assets/bootstrap/docs/javascript.html</loc>
@@ -82,11 +88,11 @@
     </url>
     <url>
         <loc>http://marukulau.github.io/blog/archives/</loc>
-        <lastmod>2014-05-14T22:11:31+08:00</lastmod>
+        <lastmod>2014-05-14T22:19:43+08:00</lastmod>
     </url>
     <url>
         <loc>http://marukulau.github.io/</loc>
-        <lastmod>2014-05-14T22:11:31+08:00</lastmod>
+        <lastmod>2014-05-14T22:19:43+08:00</lastmod>
     </url>
     <url>
         <loc>http://marukulau.github.io/robots.txt</loc>
